@@ -4,7 +4,6 @@ services: docker
 script:
 - chmod +x dropbox_uploader.sh
 - echo "Everything all right until now"
-- "./dropbox_uploader.sh unlink"
 - "./dropbox_uploader.sh upload README.md README.md"
 before_deploy:
 - git config --local user.name "Fmrhj"
