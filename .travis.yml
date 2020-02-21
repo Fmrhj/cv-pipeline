@@ -1,0 +1,21 @@
+sudo: required
+dist: trusty
+services: docker
+script:
+- wget https://raw.githubusercontent.com/blang/latex-docker/master/latexdockercmd.sh
+- chmod +x latexdockercmd.sh
+- "./latexdockercmd.sh latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex
+  -outdir=./_build"
+- chmod +x dropbox_uploader.sh
+- "./dropbox_uploader.sh upload _build/main.pdf cv-uploader2151/Zepeda_CV-latest.pdf"
+before_install:
+- openssl aes-256-cbc -K $encrypted_fa1d1a8220a2_key -iv $encrypted_fa1d1a8220a2_iv
+  -in .dropbox_uploader.enc -out ~/.dropbox_uploader -d
+deploy:
+  provider: releases
+  api_key:
+    secure: To2WCd7DcJIRjxibz/n3qRjZ8e0J6xjRz1KjJUZVq2XO6xLTclxJlOY1PEkzB8UKKfNyp36DPF+3tKOcHNJebd8qhR2d6H7IvAwerJtjHlu5eRwE2ua8EAheCQ4YIVOPcxI8WmwcmIVGPQTudREx2wbKHCZ9tDF0fJCpWtRZ3S+3slkqmYNX8p/UWUqNHAbrV8LGRhMmEoiBs6xS0bpER0BCh5LKA35i5UuxKBnPk7BDGvNSw0uLip/FaE+BCfkU5gtCSAxqnhpeIgIAcXUo/ZGhv8vnxwZqdMwBrVSkvBYm3T8fxfd8FOFZCr2Pwrg4foTvKOPv5iOPd/t3kILgh/SISF8exGhL/aBIAsD61oNdoKMetBtQ0+FiReyXyb3VPZIYugdkxp7DWG5ip9OcOLFTm7keS2VCvVMAANZFPd2tkjh1WE9JpiV1rl/aCeUigaFgfh4KbEQMcAtNxQCF4pV9peRsoi8p+MBirzActkBAzONhJBN2No1cJ1wr1em2nbrN0/UwmObWZcZ8zXU1hWXUQK0WRaUcIzMXJacnLJscxe+e46IfuXCj15czkyONuW6fPxPmiCGXt/+HoxqOTExUB2keFCiiPFgIp0h3axuXWfAKB0GP/pAd90HuPEbP1Ym/aol+4niEmuTpuxPbgnvBYY1jLWKbWE11nyEfwWE=
+  file: './_build/main.pdf'
+  on:
+    repo: Fmrhj/cv-pipeline
+    tag: true 
