@@ -4,7 +4,7 @@ services: docker
 script:
 - wget https://raw.githubusercontent.com/blang/latex-docker/master/latexdockercmd.sh
 - chmod +x latexdockercmd.sh
-- "./latexdockercmd.sh latexmk -pdflatex -interaction=nonstopmode -halt-on-error main.tex -outdir=./_build"
+- "./latexdockercmd.sh latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex -outdir=./_build"
 - chmod +x dropbox_uploader.sh
 - "./dropbox_uploader.sh upload _build/main.pdf cv-uploader2151/Zepeda_CV-latest.pdf"
 before_install:
