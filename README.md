@@ -9,4 +9,4 @@ Continuous integration to build a CV with:
 - [Docker](https://www.docker.com/)
 - [Openssl](https://www.openssl.org)
 
-Based on this ![medium article](https://medium.com/@baymac/continuous-integration-of-latex-documents-using-travis-ci-a1916c89e978).
+Based on this [medium article](https://medium.com/@baymac/continuous-integration-of-latex-documents-using-travis-ci-a1916c89e978).
