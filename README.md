@@ -16,5 +16,5 @@ Some of the things I learnt while developing this solution:
 1. Skip builds in travis if you change irrelevant files. After commiting any changes in your repository travis will automatically try to build. There are however many cases where this can be annoying, for example, by commiting minor changes in the `README` file. This can be avoided while adding the following in your commit message: 
  
 ``` bash 
-git commit -m "commit msg [skip ci]
+git commit -m "commit msg [skip ci]"
 ```
