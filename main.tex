@@ -1,30 +1,38 @@
 \documentclass[a4paper, 12]{scrartcl}
 
 \usepackage{tabularx}
-\usepackage[usenames,dvipsnames]{xcolor} 
+\usepackage[usenames, dvipsnames]{xcolor} 
 
 % define colors 
 \definecolor{linkcolour}{RGB}{28,0,128} 
 \definecolor{newgray}{gray}{0.4}
-\definecolor{mainColor}{RGB}{102, 51, 153} 
+%\definecolor{mainColor}{RGB}{102, 51, 153} 
+% dark-midnight blue
+\definecolor{mainColor}{RGB}{0, 20, 45} 
 \definecolor{secondaryColor}{RGB}{66, 28, 82} 
 \definecolor{lightgray}{gray}{0.8}
 
-\newcommand{\preSectionSpace}{\vspace{0.03cm}}
-\newcommand{\afterSectionSpace}{\vspace{0.2cm}}
+
+\usepackage{lastpage}
+\renewcommand\pagemark{{\usekomafont{pagenumber}\thepage\ of \pageref{LastPage}}}
+\usepackage{scrlayer-scrpage}% sets pagestyle scrheadings automatically
+\clearpairofpagestyles
+\ohead{\headmark}
+\ofoot*{\pagemark}
+
+\newcommand{\preSectionSpace}{\vspace{0.2cm}}
+\newcommand{\afterSectionSpace}{\vspace{0.5cm}}
 
 \usepackage{url}
 \usepackage{array}
 \usepackage[colorlinks, breaklinks, urlcolor=linkcolour, linkcolor=linkcolour, pdfstartview=FitB, bookmarks=false]{hyperref} 
 \usepackage{CV}
-\usepackage[margin=0.15in]{geometry}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[english]{babel}
-%\usepackage[applemac]{inputenc} 
 \usepackage{tikz}
 \usepackage{tikzpagenodes}
 \usetikzlibrary{calc} 
-\usepackage{ae,aecompl} %mejora la calidad
-\usepackage{lmodern} % resuelve el problema de las letras con mala apariencia
+\usepackage{ae,aecompl} 
 
 % figures
 \usepackage{graphicx}
@@ -35,21 +43,15 @@
 \usepackage{wasysym}
 \usepackage{ifsym}
 \usepackage{fontawesome}
-
-
-\usepackage{verbatim} %pa comentarios laaargos
 \usepackage{enumitem}
 \usepackage{textcomp}
-%\usepackage[nochapters]{classicthesis} % para nuevo tema del CV
-\usepackage[LabelsAligned]{currvita} %para nuevo tema del CV 
+\usepackage[LabelsAligned]{currvita} 
+\usepackage{verbatim}
 
 \usepackage[none]{hyphenat}
 \renewcommand{\familydefault}{\sfdefault} 
 
 \sloppy
-
-%\usepackage{doublespace}
-%\setstretch{1.2}
 
 % define column type for tabular subsections
 \newcolumntype{L}{>{\raggedleft}p{0.181\textwidth}}
@@ -91,21 +93,29 @@
 		\end{flushleft}
 		\textcolor{newgray}{\textit{Born in Copiapó, Chile}, May 27, 1988}
 		\begin{flushleft}
-			\begin{minipage}{0.45\textwidth}
-				\begin{flushright}
-					\begin{minipage}{0.10\textwidth}
+			\begin{minipage}{1.0\textwidth}
+				\begin{flushleft}
+					\begin{minipage}{0.05\textwidth}
 						\faHome \\
 						\faPhone \\
 						\Letter \\
-						\includegraphics[width=0.4\linewidth]{images/linkedin.png} \\
 					\end{minipage}	
-					\begin{minipage}{0.85\textwidth}
+					\begin{minipage}{0.48\textwidth}
 						Berlin, Germany \\
 						+49 157 3936 4928 \\
-						\href{mailto:fernando.zepeda@protonmail.com}{fernando.zepeda@protonmail.com} \\
-						\href{https://www.linkedin.com/in/fernando-zepeda-4b83073a}{linkedin} \\
+						\href{mailto:fernando.zepeda@protonmail.com}{fernando.zepeda@protonmail.com}\\
 					\end{minipage}
-				\end{flushright}
+					\begin{minipage}{0.05\textwidth}
+					    \includegraphics[width=0.4\linewidth]{images/linkedin.png}\\
+					     \includegraphics[width=0.4\linewidth]{images/githublogo.png}\\
+					    \\
+					\end{minipage}
+					\begin{minipage}{0.30\textwidth}
+					    \href{https://www.linkedin.com/in/fernando-zepeda-4b83073a}{Linkedin}\\
+						\href{https://github.com/Fmrhj}{Github}\\
+						 \\
+					\end{minipage}
+				\end{flushleft}
 			\end{minipage}
 		\end{flushleft}
 	\end{minipage}
@@ -118,51 +128,56 @@
 	\end{minipage}
 	
 	%---- Experience ----% 
-	%\preSectionSpace
-	\hspace{0.2cm}{\large\textcolor{mainColor}{\textbf{Work Experience}}}
+	\preSectionSpace
+	\hspace{0.2cm}{\large\textcolor{mainColor}{\textbf{Experience}}}
 	\afterSectionSpace
 	
 	\begin{tabular}{L!{\VRule}R}
 		
-		09/2017 - present &\textbf{IT Specialist} - \textsc{Lufthansa Systems GmbH \& Co. KG}\\ 
+		09/2017 - present &\textbf{IT Specialist} - Lufthansa Systems GmbH \& Co. KG\\ 
 		\footnotesize{Berlin, Germany}  & Data science and mathematical modelling\\
 		&\\[-9pt]
-		& $\cdot$ Methods for capacity allocation and forecasting unit software for all Lufthansa hubs\\
-		& $\cdot$ Software development in SCRUM set-up to bring prototype into production\\
-		& $\cdot$ Flight prediction proof of concept with big data ingestion (Lufthansa Passage)\\
-		& $\cdot$ Modelling and prototyping for dynamic bundling and pricing of flight ancillaries with Machine Learning\\
-		& $\cdot$ Rapid prototyping for prediction of hotel demand for stranded passengers (Lufthansa Passage)\\[7pt]
 		
-		04/2017 - 08/2017 & \textbf{Student Assistant} - \textsc{Lufthansa Systems GmbH \& Co. KG}\\ 
+		& \sbt \ \ Methods for capacity allocation and forecasting unit software for all Lufthansa hubs (Lufthansa Passage)\\
+		
+		& \sbt \ \ Agile software development set-up to bring prototype into production\\
+		
+		& \sbt \ \ Flight prediction proof of concept with big data ingestion (Lufthansa Passage)\\
+		
+		& \sbt \ \ Modelling and prototyping dynamic bundling and pricing of flight ancillaries with Machine Learning (Swiss International Airlines)\\
+		
+		& \sbt \ \ Rapid prototyping prediction of hotel demand for stranded passengers (Lufthansa Passage)\\[7pt]
+		
+		04/2017 - 08/2017 & \textbf{Student Assistant} - Lufthansa Systems GmbH \& Co. KG\\ 
 		\footnotesize{Berlin, Germany} & Rapid Prototyping\\ 
 		& \\[-9pt]
 		&  Passenger demand estimation using machine learning algorithms and price optimization concept for short haul flights \\[7pt]
 		
-		09/2016 - 03/2017 & \textbf{Masterand} - \textsc{Lufthansa Systems GmbH \& Co. KG}\\ 
+		09/2016 - 03/2017 & \textbf{Masterand} - Lufthansa Systems GmbH \& Co. KG\\ 
 		\footnotesize{Berlin, Germany} & Master's thesis: An Airline Stochastic Dynamic Pricing Model\\
 		&\\[-9pt]
-		&  Development of a prototype in R for optimal price path calculation of single-leg flights using Reinforcement Learning \\[7pt]
+		&  Prototyping optimal price calculation of single-leg flights using Reinforcement Learning \\[7pt]
 		
-		04/2014 - 09/2015 & \textbf{Student Assistant} - \textsc{Wintershall Erdgas Handelhaus GmbH \& Co. KG - BASF}\\
+		04/2014 - 09/2015 & \textbf{Student Assistant} - Wintershall Erdgas Handelhaus GmbH \& Co. KG - BASF\\
 		\footnotesize{Berlin, Germany} & Database management \\
 		&\\[-9pt]
 		& Gas Transport Optimization Tool: Managed, maintained databases. QA testing of new modules for productive use\\
 		
 		\begin{comment}
-		01/2012 - 02/2012&\textbf{Engineering Intern} - Financial Department - \textsc{Minera Esperanza S.A.}\\
-		\footnotesize{Santiago, Chile}&\\[-22pt]
-		&\sbt \ Analyzed procurement process and evaluated financial risk of prospective suppliers and contractors\\[-12pt]
-		&\sbt \ Designed and developed new procurement assessment methodology: multivariate model of financial ratios, increasing flexibility without incurring in additional risk levels
-		\\[7pt]
-		
-		06/2011 - 07/2011&\textbf{Intern}, Planning and Control Department - \textsc{ABB S.A.}\\
-		\footnotesize{Santiago, Chile}&\\[-12pt]
-		
-		&Monitored projects, developed periodic financial reports and collaborated closely with project managers from process automation division\\[7pt]
-		01/2010 - 02/2010 & \textbf{Research Assistant} - Program of Studies and Research on Energy - \\ \footnotesize{Santiago, Chile}&\textsc{Universidad de Chile}\\
-		\\[-12pt]
-		& Contributed as assistant and co-researcher in the National Plan of Energetic Efficiency 2010 -- 2020 for the Chilean government\\
-		\end{comment}
+    		01/2012 - 02/2012&\textbf{Engineering Intern} - Financial Department - Minera Esperanza S.A.\\
+    		\footnotesize{Santiago, Chile}&\\[-22pt]
+    		& \sbt \ Analyzed procurement process and evaluated financial risk of prospective suppliers and contractors\\[-12pt]
+    		& \sbt \ Designed and developed new procurement assessment methodology: multivariate model of financial ratios, increasing flexibility without incurring in additional risk levels
+    		\\[7pt]
+    		
+    		06/2011 - 07/2011&\textbf{Intern}, Planning and Control Department - ABB S.A.\\
+    		\footnotesize{Santiago, Chile}&\\[-12pt]
+    		
+    		& Monitored projects, developed periodic financial reports and collaborated closely with project managers from process automation division\\[7pt]
+    		01/2010 - 02/2010 & \textbf{Research Assistant} - Program of Studies and Research on Energy - \\ \footnotesize{Santiago, Chile}&\textsc{Universidad de Chile}\\
+    		\\[-12pt]
+    		& Contributed as assistant and co-researcher in the National Plan of Energetic Efficiency 2010 -- 2020 for the Chilean government\\
+    	\end{comment}
 		
 	\end{tabular}
 	
@@ -173,59 +188,104 @@
 	
 	\begin{tabular}{L!{\VRule}R}
 		
-		04/2014 - 06/2017 & \textbf{Industrial Engineering (M.Sc.)} - \textsc{Technical University of Berlin}\\
+		04/2014 - 06/2017 & \textbf{Industrial Engineering (M.Sc.)} - Technical University of Berlin\\
 		\footnotesize{Berlin, Germany}&\\[-12pt]
 		& Engineering Major in Logistics, Minor in Operations Research \& Quantitative Methods\\[7pt]
 		
-		09/2010 - 02/2011 & \textbf{Semester Abroad} - \textsc{Universitat Polit\`ecnica de Val\`encia}\\ 
+		09/2010 - 02/2011 & \textbf{Semester Abroad} - Universitat Polit\`ecnica de Val\`encia\\ 
 		\footnotesize{Valencia, Spain}&\\[-12pt]
 		& Specialization in Quantitative Production \& Operations Management\\[7pt]
 		
-		03/2006 - 10/ 2012 & \textbf{Industrial Engineering (Dipl.)} - \textsc{Universidad T\'ecnica Federico Santa Mar\'ia}\\
+		03/2006 - 10/2012 & \textbf{Industrial Engineering (Dipl.)} - Universidad T\'ecnica Federico Santa Mar\'ia\\
 		\footnotesize{Valpara\'iso, Chile}&\\[-12pt]
-		&$\cdot$ Professional title (``Ingenier\'ia civil'') and academic degree (``Licenciatura'') in Industrial Engineering Sciences \\
-		&$\cdot$ Thesis: ``Bankruptcy prediction of Chilean enterprises using artificial neural networks''
+		&$\sbt$ \ Professional title (``Ingenier\'ia civil'') and academic degree (``Licenciatura'') in Industrial Engineering Sciences \\
+		&$\sbt$ \ Thesis: ``Predicting bankruptcy of Chilean enterprises with artificial neural networks''
 		
 		\begin{comment}
-			03/2002 - 12/2005&\textbf{Secondary School} - \textsc{Colegio San Luis}\\
+			03/2002 - 12/2005&\textbf{Secondary School} - Colegio San Luis\\
 			\footnotesize{Antofagasta, Chile}&\\[-12pt]
 			& Scientific-humanist school degree with focus on courses of Mathematics and Chemistry\\ 
 		\end{comment}
 
 	\end{tabular}
-	
-	%---- Skills ----%
+
+	\newpage
+	%---- Talks ----%
 	\preSectionSpace
+	\hspace{0.2cm}\large{\textcolor{mainColor}{\textbf{Talks \& Conferences}}}
+	\afterSectionSpace
 	
-	\begin{minipage}{0.3\textwidth}
+	\begin{tabular}{L!{\VRule}R}
+		
+		05/2019  & \textbf{Airline Group of the International Federation of Operational Research Societies} - AGIFORS\\ 
+		\footnotesize{Panama City, Panama}&\\[-12pt]
+		& Revenue Management SG yearly \href{https://agifors.org/rm-2019}{meeting}.\\[7pt]
+		
+		09/2017 & \textbf{International Conference on Operations Research} - OR 2017\\
+		\footnotesize{Berlin, Germany}&\\[-12pt]
+		& Speaker at the Airline Revenue Management on the Pricing \& Revenue Management stream. \href{https://www.dropbox.com/home/Aplicaciones/cv-pipeline?preview=OR+2017.pdf}{Presentation}.\\[7pt]
+		
+		
+	\end{tabular}
+	
+	
+	%---- Publications ----%
+	\preSectionSpace
+	\hspace{0.2cm}\large{\textcolor{mainColor}{\textbf{Publications}}}
+	\afterSectionSpace
+	
+	\begin{tabular}{L!{\VRule}R}
+		
+		04/2014 - 06/2017 & \textbf{A  stochastic  dynamic  pricing  model  for  passenger air transportation} - OR 2017\\
+		\footnotesize{Berlin, Germany}&\\[-12pt]
+		& Modelling the airline revenue management pricing problem within a Markov Decision Process. More information \href{https://www.euro-online.org/conf/admin/tmp/program-gor2017.pdf}{here}. \\[7pt]
+
+	\end{tabular}
+	
+	%---- Tools and Frameworks ----%
+	\preSectionSpace
+	\hspace{0.2cm}\large{\textcolor{mainColor}{\textbf{Frameworks \& Tools}}}
+	\afterSectionSpace
+	
+	\begin{minipage}{0.45\textwidth}
 		\begin{flushleft}
 		\noindent
 			\begin{tabular}{ll}
-				\large{\textcolor{mainColor}{\textbf{Relevant Tools}}}&\\[4.5pt]
 				R & \grade{4.6}\\
-				Python & \grade{4.1} \\
+				Python & \grade{4.2} \\
+                Java & \grade{4.0} \\
 				Relational Databases & \grade{3.9} \\
 				Apache Spark & \grade{3.2} \\
+				Apache Hadoop & \grade{3.2} \\
 			\end{tabular}
 		\end{flushleft}
 	\end{minipage}
-	\begin{minipage}{0.3\textwidth}
+	\begin{minipage}{0.45\textwidth}
 		\begin{flushleft}
 			\noindent
 			\begin{tabular}{ll}
-				\large{\textcolor{mainColor}{\textbf{}}}&\\[4.5pt]
-				Java & \grade{3} \\
 				Tableau & \grade{4.1} \\
-				MS Office & \grade{4.2} \\
-				Linux & \grade{4.1} \\
+				Linux and Bash & \grade{4.1} \\
+				Git & \grade{4.2} \\
+				Apache Airflow & \grade{3}\\
+				CI: Travis/Jenkins & \grade{3}\\
+				Docker & \grade{3.2} \\
 			\end{tabular}
 		\end{flushleft}
 	\end{minipage}
-	{\VRule}
+	
+	
+	\preSectionSpace
+	
+	%---- Languages ----%
+	\preSectionSpace
+	\preSectionSpace
+	\hspace{0.2cm}\large{\textcolor{mainColor}{\textbf{Languages}}}
+	\afterSectionSpace
+
 	\begin{minipage}{0.3\textwidth}
 		\begin{flushleft}
 			\begin{tabular}{ll}
-				\large{\textcolor{mainColor}{\textbf{Languages}}}&\\[4.5pt]
 				English & Proficient/C1 Level \\[2pt]
 				German & Proficient/C1 Level \\[2pt] 
 				Spanish & Mother tongue\\[2pt] 
@@ -235,18 +295,18 @@
 		\end{flushleft}
 	\end{minipage}
 	
-	%---- Honors ----%
+	%---- Awards ----%
 	\preSectionSpace
 	\vspace{0.3cm}
-	\hspace{0.2cm}{\large{\textcolor{mainColor}{\textbf{Honors}}}}
+	\hspace{0.2cm}{\large{\textcolor{mainColor}{\textbf{Awards}}}}
 	\afterSectionSpace
 	
 	\begin{tabular}{L!{\VRule}R}
-		10/2012 & Maximum distinction in final examination \\
-		2006 - 2012 & Scholarship \textit{Academic Excellence}, \textsc{Minera Escondida Ltda.}
+		10/2012 & Maximum distinction in final examination, Universidad Técnica Federico Santa María \\
+		2006 - 2012 & Scholarship for Academic Excellence, Minera Escondida Ltda.
 	\end{tabular}
 	
-	\vspace{0.03cm}
+	\vspace{0.5cm}
 	\flushright{\small{Berlin, \today}}
 	
 \end{document}
