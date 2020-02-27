@@ -1,5 +1,4 @@
-# CV CI Pipeline
-[![Build Status](https://travis-ci.org/Fmrhj/cv-pipeline.svg?branch=master)](https://travis-ci.org/Fmrhj/cv-pipeline)
+# CV CI Pipeline [![Build Status](https://travis-ci.org/Fmrhj/cv-pipeline.svg?branch=master)](https://travis-ci.org/Fmrhj/cv-pipeline)
 
 Continuous integration to build a CV with:
 - [Travis](https://travis-ci.org)
