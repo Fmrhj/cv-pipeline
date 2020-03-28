@@ -7,7 +7,6 @@ script:
 - "./latexdockercmd.sh latexmk -xelatex -interaction=nonstopmode -halt-on-error main.tex -outdir=./_build"
 - chmod +x dropbox_uploader.sh
 - echo "Everything all right until now"
-#- "./dropbox_uploader.sh upload README.md cv-pipeline/README__2.md"
 - "./dropbox_uploader.sh upload _build/main.pdf output/Zepeda-last.pdf" 
 before_deploy:
 - git config --local user.name "Fmrhj"
