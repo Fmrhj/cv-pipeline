@@ -18,3 +18,4 @@ Some of the things I learnt while developing this solution:
 git commit -m "commit msg [skip ci]"
 ```
 2. Check `$TRAVIS_TAG`it may have conflicts. Check build
+Test
